@@ -6,24 +6,27 @@ import Quiz from '../pages/Quiz'
 import Result from '../pages/Result';
 import '../styles/app.css'
 import Layout from './Layout';
-import Error from './Error';
+// import Error from './Error';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import {Provider} from '../contexts/AuthContext'
 
 
 function App() {
   return (
     <React.Fragment>
       <Router>
-        <Layout>
-          <Routes>
-            <Route path='/' element={<Home/>} />
-            <Route path='/signup' element={<Signup/>} />
-            <Route path='/login' element={<Login/>} />
-            <Route path='/quiz' element={<Quiz/>} />
-            <Route path='/result' element={<Result/>} />
-            {/* <Route path='/*' element={<Error/>} /> */}
-          </Routes>
-        </Layout>
+        <Provider>
+          <Layout>
+            <Routes>
+              <Route path='/' element={<Home/>} />
+              <Route path='/signup' element={<Signup/>} />
+              <Route path='/login' element={<Login/>} />
+              <Route path='/quiz' element={<Quiz/>} />
+              <Route path='/result' element={<Result/>} />
+              {/* <Route path='/*' element={<Error/>} /> */}
+            </Routes>
+          </Layout>
+        </Provider>
       </Router>
     </React.Fragment>
   );
