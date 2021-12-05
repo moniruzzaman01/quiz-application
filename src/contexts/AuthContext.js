@@ -18,7 +18,7 @@ export function useAuth(){
 
 export function Provider({children}){
     const [loading, setLoading]=useState(true)
-    const [currentUser, setCurrentUser]=useState(null)
+    const [currentUser, setCurrentUser]=useState()
 
     useEffect(() =>{
         const auth = getAuth();

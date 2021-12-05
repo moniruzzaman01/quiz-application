@@ -1,21 +1,20 @@
 import cls from '../styles/account.module.css'
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
+import {useAuth} from '../contexts/AuthContext'
 
 export default function Account() {
-  const [isLogged, setLogged]=useState(true)
+  const {currentUser}=useAuth()
     return (
         <React.Fragment>
-            <div class={cls.account}>
-        <span class="material-icons-outlined" title="Account">
+            <div className={cls.account}>
+        <span className="material-icons-outlined" title="Account">
           account_circle
         </span>
-        {
-          isLogged?<Link onClick={()=>setLogged(!isLogged)} to="/signup">Signup</Link>
-          :
-          <Link onClick={()=>setLogged(!isLogged)} to="/login">Login</Link>
-        }
-        {/* <span class="material-icons-outlined" title="Logout"> logout </span> */}
+          <Link to="/signup">Signup</Link>
+          <Link to="/login">Login</Link>
+          <p>User: {currentUser.displayName}</p>
+        {/* <span className="material-icons-outlined" title="Logout"> logout </span> */}
       </div>
         </React.Fragment>
     )
