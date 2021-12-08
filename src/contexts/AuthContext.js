@@ -9,6 +9,7 @@ import {
     onAuthStateChanged,
     }
     from 'firebase/auth'
+import { useNavigate } from 'react-router';
 
 const AuthContext=React.createContext();
 
@@ -47,7 +48,7 @@ export function Provider({children}){
     // Login function
     function Login(email, password){
         const auth=getAuth();
-        return signInWithEmailAndPassword(auth, email, password)
+        return  signInWithEmailAndPassword(auth, email, password)
     }
     // Logout function
     function Logout(){
